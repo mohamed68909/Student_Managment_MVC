@@ -1,0 +1,40 @@
+﻿@model Student_Managmet_MVC.Models.Attendance
+
+@{
+    ViewData["Title"] = "Attendance Details";
+}
+
+<h1 class="text-info mb-4">Attendance Details</h1>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Date</dt>
+            <dd class="col-sm-9">@Model.Date.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">Attendance</dt>
+            <dd class="col-sm-9">
+                <span class="badge @(Model.IsPresent ? "bg-success" : "bg-danger")">
+                    @(Model.IsPresent ? "Present" : "Absent")
+                </span>
+            </dd>
+
+            <dt class="col-sm-3">Student Email</dt>
+            <dd class="col-sm-9">@Model.Student?.Email</dd>
+
+            <dt class="col-sm-3">Student Name</dt>
+            <dd class="col-sm-9">@Model.Student?.Name</dd>
+
+            <dt class="col-sm-3">Course Name</dt>
+            <dd class="col-sm-9">@Model.Course?.Name</dd>
+
+            <dt class="col-sm-3">Credits</dt>
+            <dd class="col-sm-9">@Model.Course?.Credits</dd>
+        </dl>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

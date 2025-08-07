@@ -1,0 +1,39 @@
+﻿@model Student_Managmet_MVC.Models.Instructor
+
+@{
+    ViewData["Title"] = "Instructor Details";
+}
+
+<h1 class="text-primary mb-4">Instructor Details</h1>
+
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3 fw-bold text-secondary">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-secondary">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt class="col-sm-3 fw-bold text-secondary">
+                @Html.DisplayNameFor(model => model.HireDate)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.HireDate)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="d-flex gap-2">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

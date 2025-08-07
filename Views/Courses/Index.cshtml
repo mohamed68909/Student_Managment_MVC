@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Student_Managmet_MVC.Models.Course>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h1 class="text-primary mb-4">Courses</h1>
+
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-success">+ Add New Course</a>
+</div>
+
+<table class="table table-bordered table-striped table-hover shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.First().Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.First().Credits)</th>
+            <th scope="col" class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Credits</td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

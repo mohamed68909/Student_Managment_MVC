@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Student_Managmet_MVC.Models.Attendance>
+
+@{
+    ViewData["Title"] = "Attendance Records";
+}
+
+<h1 class="my-4 text-primary">Attendance Records</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success mb-3">+ Add New Attendance</a>
+</p>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark text-center">
+        <tr>
+
+            <th>#</th>
+            <th>Student Name</th>
+          
+            
+            <th>Course Name</th>
+            <th>Credits</th>
+            <th>Present</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center align-middle">
+
+                <th>@item.Id</th>
+                <td>@item.Student?.Name</td>
+               
+               
+                <td>@item.Course?.Name</td>
+                <td>@item.Course?.Credits</td>
+                <td>
+                    <input class="form-check-input" type="checkbox" disabled @(item.IsPresent ? "checked" : "") />
+                </td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

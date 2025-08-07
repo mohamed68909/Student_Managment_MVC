@@ -1,0 +1,53 @@
+﻿@model Student_Managmet_MVC.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<h1>Edit Student</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DataOfBirth" class="control-label"></label>
+                <input asp-for="DataOfBirth" class="form-control" type="date" />
+                <span asp-validation-for="DataOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="DapartmantId" class="control-label"></label>
+                <select asp-for="DapartmantId" class="form-control" asp-items="ViewBag.DapartmantId"></select>
+                <span asp-validation-for="DapartmantId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
